@@ -1,0 +1,112 @@
+.container {
+  /* ----- set the container as a grid ----- */
+  display: grid;
+
+  /* ----- set sizes of columns and rows ----- */
+  /* grid-template-columns: 50px 50px; */
+  /* grid-template-rows: 50px 50px; */
+
+  /* ----- shorthand of the column and row properties above ----- */
+  grid-template: 50px 50px / 50px 50px;
+
+  /* ----- all new elements will automatically use this size formatting ----- */
+  grid-auto-rows: 50px;
+
+  /* ----- All new elements added will be added as a column ----- */
+  /* grid-auto-flow: column; */
+  /* grid-auto-columns: 50px; */
+
+  /* ----- adds a gap between the columns and rows of a grid ----- */
+  /* column-gap: 10px; */
+  /* row-gap: 100px; */
+
+  /* ----- shorthand version of column-gap and row-gap ----- */
+  gap: 100px 10px;
+}
+
+/* -------------------------- FLOOR PLAN: FIRST VERSION ------------------------- */
+
+.floor-plan1 {
+  display: inline-grid;
+  /* ----- create a grid template: row / column ----- */
+  grid-template: 100px 100px 100px 100px 100px / 100px 100px 100px 100px 100px;
+  background-color: lightblue;
+}
+
+.room1 {
+  border: 1px solid;
+  font-size: 16px;
+  text-align: center;
+}
+
+#living-room1 {
+  /* grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3; */
+  /* ----- shorthand for grid-column-(start/end) and grid-row-(start/end) ----- */
+  grid-area: 1 / 1 / 3 / 6; /* row-start / column-start / row-end / column-end */
+}
+
+#bathroom1 {
+  /* ----- shorthand of grid column start and end ----- */
+  grid-column: 3 / 4;
+  /* ----- shorthand of grid row start and end ----- */
+  grid-row: 3 / 6;
+}
+
+#bedroom1 {
+  grid-column: 1 / 3;
+  grid-row: 3 / 5;
+}
+
+#closet1 {
+  grid-column: 1 / 3;
+  grid-row: 5 / 6;
+}
+
+#kitchen1 {
+  grid-column: 4 / 6;
+  grid-row: 3 / 6;
+}
+
+/* -------------------------- FLOOR PLAN: SECOND VERSION ------------------------- */
+
+.floor-plan2 {
+  display: inline-grid;
+  /* ----- create a grid template: row / column ----- */
+  grid-template: 100px 100px 100px 100px 100px / 100px 100px 100px 100px 100px;
+  grid-template-areas:
+    "living-room living-room living-room living-room living-room"
+    "living-room living-room living-room living-room living-room"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "closet closet . . .";
+  background-color: lightcoral;
+}
+
+.room2 {
+  border: 1px solid;
+  font-size: 16px;
+  text-align: center;
+}
+
+#living-room2 {
+  grid-area: living-room;
+}
+
+#bathroom2 {
+  grid-area: bathroom;
+}
+
+#bedroom2 {
+  grid-area: bedroom;
+}
+
+#closet2 {
+  grid-area: closet;
+}
+
+#kitchen2 {
+  grid-area: kitchen;
+}
